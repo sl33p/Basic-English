@@ -1,0 +1,9 @@
+<h1>Basic English</h1>
+
+<% if @success %>
+  <%= @text %>
+<% else %>
+
+  Nothing returned for <%= link_to(@text.gsub("%20"," "),'http://www.google.com/search?hl=en&q='+@text+'&btnI=I%27m+Feeling+Lucky') %>
+
+<% end %>
