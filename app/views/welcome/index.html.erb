@@ -2,8 +2,12 @@
 
 <% if @success %>
   <%= @text %>
-<% else %>
+<% else
+  unless @text.nil? || @text.empty?
+    @str = @text.gsub("%20"," ")
+  end
+ %>
 
-  Nothing returned for <%= link_to(@text.gsub("%20"," "),'http://www.google.com/search?hl=en&q='+@text+'&btnI=I%27m+Feeling+Lucky') %>
+  Nothing returned for <%= link_to(@str,'http://www.google.com/search?hl=en&q='+@text+'&btnI=I%27m+Feeling+Lucky') %>
 
 <% end %>
